@@ -38,5 +38,47 @@ namespace SortAndSearch
 
             return mid;
         }
+
+        static int[] bubbleSortFor(int[] arr)
+        {
+            //complexity O(n^2)
+            for(int x = 0; x < arr.Length - 1; x++)
+            {
+                //-x for fasterness
+                for(int y = 0; y < arr.Length - 1 - x; y++)
+                {
+                    if(arr[y] > arr[y + 1])
+                    {
+                        //swap values
+                        int tmp = arr[y];
+                        arr[y] = arr[y + 1];
+                        arr[y + 1] = tmp;
+                    }
+                }
+            }
+            return arr;
+        }
+
+        static int[] bubbleSortWhile(int[] arr)
+        {
+            bool sorted = false;
+            int x = 0;
+            //sorted something seotnhing probably more efficient because for loop can detect if array is sorted and quite out if so
+            while (!sorted)
+            {
+                sorted = true;
+                for (int y = 0; y < arr.Length - 1 - x; y++)
+                {
+                    if(arr[y] > arr[y + 1])
+                    {
+                        int tmp = arr[y];
+                        arr[y] = arr[y + 1];
+                        arr[y + 1] = tmp;
+                        sorted = false;
+                    }
+                }
+            }
+            return arr;
+        }
     }
 }
